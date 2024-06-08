@@ -8,6 +8,7 @@ app_name = 'djangoapp'
 urlpatterns = [
     # path for registration
     path(route='register', view=views.registration, name='register'),
+
     # path for login
     path(route='login', view=views.login_user, name='login'),
 
@@ -17,16 +18,18 @@ urlpatterns = [
     #path for get_cars
     path(route='get_cars', view=views.get_cars, name ='getcars'),
     
-    # path for dealer reviews view
+    # path for get all dealers 
     path(route='get_dealers', view=views.get_dealerships, name='get_dealers'),
+
+    #path for get dealer based on state selected
     path(route='get_dealers/<str:state>', view=views.get_dealerships, name='get_dealers_by_state'),
     
     # path to get dealer details by dealer Id
     path(route='dealer/<int:dealer_id>', view=views.get_dealer_details, name='dealer_details'),
-    
-    # path to get dealers reviews by dealers id
-    path(route='dealer/<int:dealer_id>', view=views.get_dealer_details, name='dealer_details'),
-    
+
+    #path to get dealer reviews details
+    path(route='reviews/dealer/<int:dealer_id>', view=views.get_dealer_reviews, name='dealer_details'),
+
     # path for add a review view
     path(route='add_review', view=views.add_review, name='add_review'),
 

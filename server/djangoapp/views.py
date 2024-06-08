@@ -39,9 +39,8 @@ def login_user(request):
         login(request, user)
         data = {"userName": username, "status": "Authenticated"}
     return JsonResponse(data)
-    get_cars()
+    
 
-# Create a `logout_request` view to handle sign out request
 # Create a `logout_request` view to handle sign out request
 def logout_request(request):
     # get the user object based on session id in request
@@ -110,7 +109,7 @@ def get_dealerships(request, state='All'):
 # ...
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
-def get_dealer_reviews(request,dealer_id):
+def get_dealer_reviews(request, dealer_id):
     # if dealerid has been provided
     if (dealer_id):
         endpoint = '/fetchReviews/dealer/'+str(dealer_id)
